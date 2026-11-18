@@ -1,1 +1,81 @@
 
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#102b32">
+  <title>Real Fishing Simulator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">RFS</span>
+        <div><strong>REAL FISHING SIMULATOR</strong><small>SIMULAÇÃO DE PESCA • ÁGUA DOCE</small></div>
+      </div>
+      <div class="top-stats">
+        <span><small>LOCAL</small><b id="location">Represa do Cedro</b></span>
+        <span><small>HORÁRIO</small><b id="clock">07:30</b></span>
+        <span><small>CAPTURAS</small><b id="caught">0</b></span>
+      </div>
+      <button class="icon-btn" id="pauseBtn" aria-label="Pausar">Ⅱ</button>
+    </header>
+
+    <section class="scene-wrap">
+      <canvas id="scene" aria-label="Cena de pesca"></canvas>
+      <div class="hud-top">
+        <div class="weather"><span class="sun-icon">☀</span><span><b>MANHÃ</b><small>Vento leve • 24°C</small></span></div>
+        <div class="depth-readout"><small>PROFUNDIDADE</small><b id="depth">0,0 m</b></div>
+      </div>
+      <div class="bite-alert" id="biteAlert">TOQUE NA LINHA!</div>
+      <div class="center-message" id="centerMessage">
+        <div class="message-card">
+          <span class="eyebrow">PESCA ESPORTIVA</span>
+          <h1>Encontre o ponto.<br>Leia a água.</h1>
+          <p>Faça o arremesso, acompanhe a isca e trabalhe o peixe com cuidado.</p>
+          <button class="primary-btn" id="startBtn">INICIAR PESCARIA <span>→</span></button>
+        </div>
+      </div>
+      <div class="bottom-hud">
+        <div class="tension-panel">
+          <div class="panel-heading"><span>TENSÃO DA LINHA</span><b id="tensionValue">0%</b></div>
+          <div class="meter"><i id="tensionBar"></i><span class="danger-zone"></span></div>
+          <small id="lineStatus">Linha frouxa</small>
+        </div>
+        <div class="reel-panel">
+          <div class="reel-label"><span>RECOLHIMENTO</span><b id="reelValue">0%</b></div>
+          <div class="meter"><i id="reelBar"></i></div>
+          <small id="fishStatus">Aguardando arremesso</small>
+        </div>
+        <div class="depth-panel"><small>LINHA</small><b id="lineLength">30 m</b><small>MONOFILAMENTO</small></div>
+      </div>
+    </section>
+
+    <section class="control-strip">
+      <div class="control-group">
+        <span class="control-title">CONTROLES</span>
+        <span><kbd>ESPAÇO</kbd> Arremessar / fisgar</span>
+        <span><kbd>W</kbd> Recolher</span>
+        <span><kbd>S</kbd> Soltar linha</span>
+        <span><kbd>A</kbd> / <kbd>D</kbd> Trabalhar a vara</span>
+      </div>
+      <div class="actions">
+        <button id="castBtn" class="action-btn"><span>↗</span> ARREMESSAR</button>
+        <button id="reelBtn" class="action-btn secondary"><span>⟳</span> RECOLHER</button>
+      </div>
+    </section>
+
+    <footer class="equipment">
+      <div class="equip-item"><small>VARA</small><b>Carbon Pro 2,10 m</b></div>
+      <div class="equip-item"><small>MOLINETE</small><b>Spin 2500</b></div>
+      <div class="equip-item"><small>ISCA</small><b id="baitName">Minnow • 8 cm</b></div>
+      <div class="equip-item"><small>LINHA</small><b>0,28 mm • 6 kg</b></div>
+      <div class="equip-item money"><small>SALDO</small><b id="money">R$ 0,00</b></div>
+    </footer>
+  </main>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
